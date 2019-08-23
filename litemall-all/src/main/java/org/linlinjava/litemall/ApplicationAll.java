@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("org.linlinjava.litemall.db.dao")
 @EnableTransactionManagement
 @EnableScheduling
-public class Application {
+public class ApplicationAll {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationAll.class, args);
     }
 
 }

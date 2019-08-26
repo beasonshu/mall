@@ -1,6 +1,9 @@
 package org.linlinjava.litemall.wx.web;
 
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.util.JacksonUtil;
@@ -74,8 +77,9 @@ public class WxFootprintController {
      * @param limit 分页大小
      * @return 用户足迹列表
      */
-    @GetMapping("list")
-    public Object list(@LoginUser Integer userId,
+    @PostMapping("list")
+    @ApiOperation(value="创建用户", notes="根据User对象创建用户")
+    public Object list(@RequestAttribute Integer userId,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit) {
         if (userId == null) {

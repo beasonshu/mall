@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Yogeek
  * @date 2018/8/25 14:10
  */
-@Api(tags = "用户相关接口")
+@Api(tags = "意见反馈服务")
 @RestController
 @RequestMapping("/wx/feedback")
 @Validated

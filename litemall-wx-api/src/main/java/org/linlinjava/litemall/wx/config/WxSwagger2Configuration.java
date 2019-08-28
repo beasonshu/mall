@@ -38,7 +38,6 @@ public class WxSwagger2Configuration {
                 .title("litemall-wx API")
                 .description("litemall小商场API")
                 .termsOfServiceUrl("https://github.com/linlinjava/litemall")
-                .contact("https://github.com/linlinjava/litemall")
                 .version("1.0")
                 .build();
     }

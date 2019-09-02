@@ -35,9 +35,9 @@ public class WxSwagger2Configuration {
 
     private ApiInfo wxApiInfo() {
         return new ApiInfoBuilder()
-                .title("litemall-wx API")
-                .description("litemall小商场API")
-                .termsOfServiceUrl("https://github.com/linlinjava/litemall")
+                .title("微信API")
+                .description("小商场API")
+                .termsOfServiceUrl("https://github.com/beasonshu/mall")
                 .version("1.0")
                 .build();
     }

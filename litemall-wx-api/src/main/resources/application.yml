@@ -3,6 +3,11 @@ spring:
     active: db, core, wx
   messages:
     encoding: UTF-8
+  #访问图片路劲为/image/**
+#  mvc:
+#    static-path-pattern: /image/**
+  resources:
+      static-locations: file:///Users/shuxinghu/IdeaProjects/uploads/
 
 server:
   port: 8082

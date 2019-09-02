@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 简单缓存的数据
  */
 public class HomeCacheManager {
-    public static final boolean ENABLE = false;
+    public static final boolean ENABLE = true;
     public static final String INDEX = "index";
     public static final String CATALOG = "catalog";
     public static final String GOODS = "goods";

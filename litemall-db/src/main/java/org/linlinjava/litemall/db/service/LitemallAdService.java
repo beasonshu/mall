@@ -22,6 +22,12 @@ public class LitemallAdService {
         return adMapper.selectByExample(example);
     }
 
+    public List<LitemallAd> queryBqIndex() {
+        LitemallAdExample example = new LitemallAdExample();
+        example.or().andForWeddingEqualTo(true);
+        return adMapper.selectByExample(example);
+    }
+
     public List<LitemallAd> querySelective(String name, String content, Integer page, Integer limit, String sort, String order) {
         LitemallAdExample example = new LitemallAdExample();
         LitemallAdExample.Criteria criteria = example.createCriteria();

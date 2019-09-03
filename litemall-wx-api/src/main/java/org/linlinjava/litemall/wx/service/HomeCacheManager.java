@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HomeCacheManager {
     public static final boolean ENABLE = true;
     public static final String INDEX = "index";
+    public static final String BQ_INDEX="BQ_INDEX";
     public static final String CATALOG = "catalog";
     public static final String GOODS = "goods";
 

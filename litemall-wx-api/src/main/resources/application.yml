@@ -14,3 +14,7 @@ logging:
     org.mybatis:  ERROR
     org.linlinjava.litemall.wx:  DEBUG
     org.linlinjava.litemall:  ERROR
+
+
+#swagger:
+#  host: www.yf-investment.cn

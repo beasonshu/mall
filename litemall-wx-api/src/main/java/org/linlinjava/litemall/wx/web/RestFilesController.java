@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -39,8 +41,9 @@ public class RestFilesController {
     private final Logger logger = LoggerFactory.getLogger(RestFilesController.class);
 
     // Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "/Users/shuxinghu/IdeaProjects/uploads/";
-
+//    private static String UPLOADED_FOLDER = "/Users/shuxinghu/IdeaProjects/uploads/";
+    @Autowired
+    private Environment env;
     // Single file upload
     @PostMapping("/rest/upload")
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile uploadfile) {
@@ -122,12 +125,12 @@ public class RestFilesController {
             if (file.isEmpty()) {
                 continue; // next pls
             }
-            File directory = new File(UPLOADED_FOLDER);
+            File directory = new File(env.getProperty("staticResource.realPath"));
             if (!directory.exists()){
                 directory.mkdir();
             }
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            Path path = Paths.get(env.getProperty("staticResource.realPath") + file.getOriginalFilename());
             Files.write(path, bytes);
 
         }

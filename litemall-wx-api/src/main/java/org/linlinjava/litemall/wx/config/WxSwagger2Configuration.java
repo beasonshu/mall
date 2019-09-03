@@ -26,6 +26,7 @@ public class WxSwagger2Configuration {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("wx")
+                //.host("www.yf-invenstment.cn")
                 .apiInfo(wxApiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("org.linlinjava.litemall.wx.web"))

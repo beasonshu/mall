@@ -26,6 +26,6 @@ public class WxWebMvcConfiguration implements WebMvcConfigurer {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         //上传的图片在D盘下的OTA目录下，访问路径如：http://localhost:8082/OTA/IMG_20190726_154900.jpg
         //其中OTA表示访问的前缀。"file:D:/OTA/"是文件真实的存储路径
-        registry.addResourceHandler(env.getProperty("staticResource.dir")).addResourceLocations(env.getProperty("staticResource.realPath"));
+        registry.addResourceHandler(env.getProperty("staticResource.dir")).addResourceLocations("file:///"+env.getProperty("staticResource.realPath"));
     }
 }

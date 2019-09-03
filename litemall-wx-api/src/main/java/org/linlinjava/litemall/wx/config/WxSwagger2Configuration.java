@@ -32,6 +32,18 @@ public class WxSwagger2Configuration {
                 .paths(PathSelectors.any())
                 .build();
     }
+    @Bean
+    public Docket banquetDocket() {
+
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("banquet")
+                //.host("www.yf-invenstment.cn")
+                .apiInfo(wxApiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("org.linlinjava.litemall.wx.banquet"))
+                .paths(PathSelectors.any())
+                .build();
+    }
 
     private ApiInfo wxApiInfo() {
         return new ApiInfoBuilder()

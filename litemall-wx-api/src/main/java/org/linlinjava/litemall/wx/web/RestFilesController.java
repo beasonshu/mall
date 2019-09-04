@@ -56,6 +56,7 @@ public class RestFilesController {
         try {
             File path = new File(ResourceUtils.getURL("classpath:").getPath());
             System.out.println("path:"+path.getAbsolutePath());
+            logger.info("path:"+path.getAbsolutePath());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -71,7 +72,7 @@ public class RestFilesController {
     }
 
     // multiple upload
-    @RequestMapping(value = "/rest/multipleupload", method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/multipleUpload", method = RequestMethod.POST)
     public ResponseEntity<Object> uploadFile(@RequestPart String metaData,
                                              @RequestPart(required = true) MultipartFile[] uploadfiles) {
         // Get file name
@@ -80,13 +81,6 @@ public class RestFilesController {
 
         if (StringUtils.isEmpty(uploadedFileName)) {
             return new ResponseEntity<Object>("please select a file!", HttpStatus.OK);
-        }
-
-        try {
-            File path = new File(ResourceUtils.getURL("classpath:").getPath());
-            System.out.println("path:"+path.getAbsolutePath());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
 
         try {

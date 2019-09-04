@@ -1,4 +1,4 @@
 staticResource.dir:
-  /OTA/**
+  /image/**
 staticResource.realPath:
-  uploads/
+  /root/uploads/

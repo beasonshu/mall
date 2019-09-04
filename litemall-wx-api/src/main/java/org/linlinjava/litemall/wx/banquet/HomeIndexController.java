@@ -43,7 +43,7 @@ public class HomeIndexController {
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-        Callable<List> bannerListCallable = () -> adService.queryIndex();
+        Callable<List> bannerListCallable = () -> adService.queryBqIndex();
 
         FutureTask<List> bannerTask = new FutureTask<>(bannerListCallable);
 

@@ -14,10 +14,10 @@ logging:
     org.mybatis:  ERROR
     org.linlinjava.litemall.wx:  DEBUG
     org.linlinjava.litemall:  ERROR
-springfox:
-  documentation:
-    swagger:
-      v2:
-        host: yf-investment.cn
+#springfox:
+#  documentation:
+#    swagger:
+#      v2:
+#        host: yf-investment.cn
 
 

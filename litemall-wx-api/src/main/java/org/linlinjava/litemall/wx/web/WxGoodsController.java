@@ -2,6 +2,8 @@ package org.linlinjava.litemall.wx.web;
 
 import com.github.pagehelper.PageInfo;
 import com.mysql.jdbc.StringUtils;
+import io.swagger.annotations.ApiKeyAuthDefinition;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.system.SystemConfig;
@@ -90,7 +92,7 @@ public class WxGoodsController {
 	 * @return 商品详情
 	 */
 	@GetMapping("detail")
-	public Object detail(@LoginUser Integer userId, @NotNull Integer id) {
+	public Object detail(@ApiParam("userId") Integer userId, @RequestParam @NotNull Integer id) {
 		// 商品信息
 		LitemallGoods info = goodsService.findById(id);
 

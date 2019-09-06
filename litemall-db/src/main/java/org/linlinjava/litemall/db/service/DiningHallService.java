@@ -12,9 +12,7 @@ import java.util.List;
 public class DiningHallService {
     @Resource
     private DiningHallMapper diningHallMapper;
-    public List<DiningHall> queryByUid(Integer uid) {
-        DiningHallExample example = new DiningHallExample();
-        example.or().andIdEqualTo(uid);
-        return diningHallMapper.selectByExample(example);
+    public DiningHall queryByUid(Integer uid) {
+        return diningHallMapper.selectByPrimaryKey(uid);
     }
 }

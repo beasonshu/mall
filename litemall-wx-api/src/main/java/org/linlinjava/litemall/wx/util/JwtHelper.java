@@ -34,21 +34,20 @@ public class JwtHelper {
 		    Date expireDate = getAfterDate(nowDate,0,0,0,2,0,0);
 	        map.put("alg", "HS256");
 	        map.put("typ", "JWT");
-		    String token = JWT.create()
-		    	// 设置头部信息 Header
-		    	.withHeader(map)
-		    	// 设置 载荷 Payload
-		    	.withClaim("userId", userId)
-		        .withIssuer(ISSUSER)
-		        .withSubject(SUBJECT)
-		        .withAudience(AUDIENCE)
-		        // 生成签名的时间 
-		        .withIssuedAt(nowDate)
-		        // 签名过期的时间 
-		        .withExpiresAt(expireDate)
-		        // 签名 Signature
-		        .sign(algorithm);
-		    return token;
+			return JWT.create()
+				// 设置头部信息 Header
+				.withHeader(map)
+				// 设置 载荷 Payload
+				.withClaim("userId", userId)
+				.withIssuer(ISSUSER)
+				.withSubject(SUBJECT)
+				.withAudience(AUDIENCE)
+				// 生成签名的时间
+				.withIssuedAt(nowDate)
+				// 签名过期的时间
+				.withExpiresAt(expireDate)
+				// 签名 Signature
+				.sign(algorithm);
 		} catch (JWTCreationException exception){
 			exception.printStackTrace();
 		}

@@ -1,8 +1,11 @@
 package org.linlinjava.litemall.wx.banquet;
 
+import io.swagger.annotations.Api;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.util.ResponseUtil;
+import org.linlinjava.litemall.db.domain.DiningHall;
+import org.linlinjava.litemall.db.service.DiningHallService;
 import org.linlinjava.litemall.db.service.LitemallAdService;
 import org.linlinjava.litemall.wx.service.HomeCacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import java.util.concurrent.FutureTask;
 /**
  * 测试服务
  */
+@Api(tags = "首页")
 @RestController
 @RequestMapping("/bq/home")
 public class HomeIndexController {
@@ -28,9 +32,14 @@ public class HomeIndexController {
     @Autowired
     private LitemallAdService adService;
 
+    @Autowired
+    private DiningHallService diningHallService;
+
+
+
 
     /**
-     * 测试数据
+     * wx
      *
      * @return 测试数据
      */
@@ -46,6 +55,12 @@ public class HomeIndexController {
         Callable<List> bannerListCallable = () -> adService.queryBqIndex();
 
         FutureTask<List> bannerTask = new FutureTask<>(bannerListCallable);
+
+        Callable<DiningHall> hallCallable = () -> diningHallService.queryByUid(0);
+
+        FutureTask<DiningHall> hallTask = new FutureTask<>(hallCallable);
+
+
 
         executorService.submit(bannerTask);
         Map<String, Object> entity = new HashMap<>();

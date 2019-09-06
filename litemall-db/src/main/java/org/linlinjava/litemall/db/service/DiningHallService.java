@@ -14,7 +14,7 @@ public class DiningHallService {
     private DiningHallMapper diningHallMapper;
     public List<DiningHall> queryByUid(Integer uid) {
         DiningHallExample example = new DiningHallExample();
-        example.or();
+        example.or().andIdEqualTo(uid);
         return diningHallMapper.selectByExample(example);
     }
 }
